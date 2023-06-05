@@ -8,12 +8,20 @@
  * - remove (function to call)
  *
  * BoxList -> Box
- */
+*/
 
-function Box({ id, width = 5, height = 5, backgroundColor, remove }) {
+interface BoxInterface {
+  id: string,
+  width: number | string,
+  height: number | string,
+  backgroundColor: string,
+  remove?: Function
+}
+
+function Box({ id, width = 5, height = 5, backgroundColor, remove }: BoxInterface) {
 
   /** Remove a box. */
-  function handleRemove() {
+  function handleRemove(): void {
     remove(id);
   }
 
@@ -36,3 +44,4 @@ function Box({ id, width = 5, height = 5, backgroundColor, remove }) {
 }
 
 export default Box;
+export {BoxInterface}
