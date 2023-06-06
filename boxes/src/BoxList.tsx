@@ -8,8 +8,6 @@ import NewBoxForm from "./NewBoxForm";
  * - boxes: [ { id, width, height, backgroundColor }, ... ]
  */
 
-
-
 function BoxList() {
   const [boxes, setBoxes] = useState<BoxInterface[]>([])
 
@@ -20,7 +18,8 @@ function BoxList() {
 
   /** remove box matching that id. */
   function remove(id: string): void {
-    setBoxes(boxes => boxes.filter(box => box.id !== id));
+    setBoxes((boxes: BoxInterface[]) => boxes.filter(
+          (box: BoxInterface) => box.id !== id));
   }
 
   return (

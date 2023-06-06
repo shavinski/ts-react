@@ -19,11 +19,15 @@ interface FormInterface {
   backgroundColor: string
 }
 
+// interface FuncProps {
+//   createBox(arg:BoxInterface): void
+// }
+
 interface FuncProps {
-  createBox(arg:BoxInterface): void
+  createBox: (arg: BoxInterface) => void // what is function called? func signature (input:type) => outputType
 }
 
-const NewBoxForm: React.FC<FuncProps> = ({ createBox }) => {
+function NewBoxForm({ createBox }: FuncProps) { // Props is an OBJECT
   const [formData, setFormData] = useState<FormInterface>({
     height: "",
     width: "",

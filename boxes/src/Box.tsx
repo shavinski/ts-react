@@ -14,11 +14,14 @@ interface BoxInterface {
   id: string,
   width: number | string,
   height: number | string,
-  backgroundColor: string,
-  remove?: Function
+  backgroundColor: string
 }
 
-function Box({ id, width = 5, height = 5, backgroundColor, remove }: BoxInterface) {
+interface BoxPropsInterface extends BoxInterface {
+  remove: (id: string) => void
+}
+
+function Box({ id, width = 5, height = 5, backgroundColor, remove }: BoxPropsInterface) {
 
   /** Remove a box. */
   function handleRemove(): void {
